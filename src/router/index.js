@@ -13,6 +13,11 @@ const routes = [
     path: '/mandaremail',
     name: 'EnviarEmail',
     component: () => import(/* webpackChunkName: "enviaremail" */ '../views/EnviarEmail.vue')
+  },
+  {
+    path: '/veremails',
+    name: 'Emails',
+    component: () => import(/* webpackChunkName: "enviaremail" */ '../views/Emails.vue')
   }
 
 ]
