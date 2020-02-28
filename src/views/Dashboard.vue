@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <AppLayout />
+  
     <v-layout justify-center>
       <v-card elevation="10" width="72.5%" shaped >
         <h1
@@ -46,12 +46,12 @@
 </template>
 
 <script>
-import AppLayout from "@/components/Layout/AppLayout";
+
 export default {
   data: () => ({
     cards: [
       {
-        title: "Admistração de  ",
+        title: "Admistração de ",
         icon: "domain",
         color: "green",
         subtitle: "Condomínios"
@@ -61,9 +61,7 @@ export default {
       { title: "Imobiliárias ", icon: "house", color: "light-green" }
     ]
   }),
-  components: {
-    AppLayout
-  },
+ 
   computed: {
     retornaMomento() {
       let data = new Date().getHours();

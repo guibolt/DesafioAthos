@@ -8,6 +8,11 @@ const routes = [
     path: '/',
     name: 'Dashboard',
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
+  },
+  {
+    path: '/mandaremail',
+    name: 'EnviarEmail',
+    component: () => import(/* webpackChunkName: "enviaremail" */ '../views/EnviarEmail.vue')
   }
 
 ]
