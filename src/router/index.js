@@ -17,9 +17,27 @@ const routes = [
   {
     path: '/veremails',
     name: 'Emails',
-    component: () => import(/* webpackChunkName: "enviaremail" */ '../views/Emails.vue')
+    component: () => import(/* webpackChunkName: "veremail" */ '../views/Emails.vue')
+  },
+  {
+    path: '/usuarios',
+    name: 'Usuarios',
+    component: () => import(/* webpackChunkName: "usuarios" */ '../views/Usuarios.vue')
+  },
+  {
+    path: '/condominios',
+    name: 'Condominios',
+    component: () => import(/* webpackChunkName: "condominios" */ '../views/Condominios.vue')
+  },
+  {
+    path: '/administradoras',
+    name: 'Administradoras',
+    component: () => import(/* webpackChunkName: "condominios" */ '../views/Administradoras.vue')
+  },
+  {
+    path: '*',
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
   }
-
 ]
 
 const router = new VueRouter({

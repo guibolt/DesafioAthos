@@ -26,4 +26,10 @@ export default {
   width: 100vw !important;
   background: #fff;
 }
+.titulo {
+  font-weight: lighter;
+  margin-left: 15%;
+  font-size: 60px;
+  color: red;
+}
 </style>

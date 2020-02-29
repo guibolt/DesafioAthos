@@ -20,7 +20,7 @@
         <v-list-item-avatar>
           <v-icon color="red">account_circle</v-icon>
         </v-list-item-avatar>
-        <v-list-item-title>Jose</v-list-item-title>
+        <v-list-item-title>Usuario</v-list-item-title>
         <v-list-item-action>
           <v-btn icon @click.stop="mini = !mini">
             <v-icon color="#727272">chevron_left</v-icon>
@@ -34,7 +34,6 @@
         v-for="item in itemsnav"
         :key="item.title"
         :to="item.url"
-        :exact="item.exact"
         @click.stop="$emit('input', false)"
       >
         <v-list-item-action>
@@ -60,7 +59,6 @@
           v-for="subItem in item.items"
           :key="subItem.title"
           :to="subItem.url"
-          :exact="subItem.exact"
           @click.stop="$emit('input', false)"
         >
           <v-list-item-action>
@@ -76,7 +74,6 @@
 </template>
 
 <script>
-
 export default {
   name: "AppMenu",
   props: {
@@ -91,12 +88,12 @@ export default {
         items: [
           {
             title: "Admistradoras",
-            url: "/relatorio",
+            url: "/administradoras",
             icon: "emoji_people"
           },
           {
             title: "Condomínios",
-            url: "/relatorio",
+            url: "/condominios",
             icon: "domain"
           },
           {
@@ -124,8 +121,7 @@ export default {
         url: "/veremails"
       }
     ],
-    menuSair: { title: "Sair", icon: "exit_to_app", url: "", exact: true },
     mini: false
-  }),
+  })
 };
 </script>
