@@ -44,12 +44,16 @@
           </v-btn>
         </v-row>
       </v-card>
+      <v-snackbar v-model="snackbar" top multi-line>
+        {{mensagem}}
+        <v-btn color="white" text @click="snackbar = false">Fechar</v-btn>
+      </v-snackbar>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState, mapMutations } from "vuex";
 export default {
   name: "EnviarEmail",
   data: () => ({
@@ -62,17 +66,20 @@ export default {
     }
   }),
   computed: {
-    ...mapGetters("adm", ["retornaAdms"])
+    ...mapGetters("adm", ["retornaAdms"]),
+    ...mapState("email", ["snackbar", "mensagem"])
   },
   methods: {
     ...mapActions("adm", ["buscarAdms"]),
-     ...mapActions("email", ["mandarEmail"]),
-     async enviarEmail(){
-       await this.mandarEmail(this.email)
-       setTimeout(() => {
-         this.$router.push('/')
-       }, 500);
-     }
+    ...mapActions("email", ["mandarEmail"]),
+    ...mapMutations("email", ["desativaSnack"]),
+    async enviarEmail() {
+      await this.mandarEmail(this.email);
+      setTimeout(() => {
+        this.desativaSnack();
+        this.$router.push("/");
+      }, 1000);
+    }
   },
   async created() {
     await this.buscarAdms();

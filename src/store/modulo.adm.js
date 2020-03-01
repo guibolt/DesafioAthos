@@ -19,14 +19,13 @@ export const adm = {
   },
   actions: {
     async buscarAdms({ commit }) {
-      console.log('buscou!')
       commit("carregando");
       await http.get("administradora")
         .then(resp => {
           if (resp.status !== 200)
             return commit("casoFalha", response.statusText);
 
-          console.log("resposta do getTurmas", resp.data);
+
           commit("setaLista", resp.data);
           commit("carregou")
         })

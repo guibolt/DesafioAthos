@@ -30,6 +30,6 @@ export default {
   font-weight: lighter;
   margin-left: 15%;
   font-size: 60px;
-  color: red;
+  color: black;
 }
 </style>
