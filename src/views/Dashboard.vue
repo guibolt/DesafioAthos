@@ -14,21 +14,7 @@
 
       <v-container class="m-t5">
         <v-row justify="space-around">
-          <button v-for="card in cards" :key="card.title" @click="$router.push(card.link)">
-            <v-card
-              :color="card.color"
-              width="280"
-              height="150"
-              elevation="6"
-              shaped
-              class="mr-3 mb-3"
-            >
-              <v-card-actions>
-                <v-icon x-large>{{card.icon}}</v-icon>
-              </v-card-actions>
-              <v-card-title class="white--text headline">{{card.title}}</v-card-title>
-            </v-card>
-          </button>
+          <CardsDashboard />
         </v-row>
       </v-container>
     </v-row>
@@ -36,30 +22,11 @@
 </template>
 
 <script>
+import CardsDashboard from "@/components/Layout/CardsDashboard";
 export default {
-  data: () => ({
-    cards: [
-      {
-        title: "Condomínios ",
-        icon: "domain",
-        color: "green",
-        link: "condominios"
-      },
-      {
-        title: "Administradoras ",
-        icon: "emoji_people",
-        color: "blue",
-        link: "administradoras"
-      },
-      { title: "Usuários ", icon: "people", color: "orange", link: "usuarios" },
-      {
-        title: "Emails Enviados ",
-        icon: "mail_outline",
-        color: "purple",
-        link: "veremails"
-      }
-    ]
-  }),
+  components: {
+    CardsDashboard
+  },
 
   computed: {
     retornaMomento() {

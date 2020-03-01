@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="start">
-      <h1 class="titulo" st>Usuários</h1>
+      <h1 class="titulo" :style="ajustaTitulo">Usuários</h1>
     </v-row>
 
     <v-row justify="center" align="center" class="mt-10" v-if="loading">
@@ -9,7 +9,7 @@
     </v-row>
 
     <div v-else>
-      <v-row justify="center" align="center" class="mt-10 mb-5">
+      <v-row justify="center" align="center" class="mt-10 mb-5" v-if="!ajustaTitulo">
         <v-card width="80%" height="25%" class="white">
           <v-layout row wrap>
             <v-flex xs12 md3>
@@ -35,6 +35,7 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import {retornaMobile} from '@/commum/util'
 import UsuarioItem from "@/components/Usuario/UsuarioItem";
 export default {
   name: "Usuarios",
@@ -42,7 +43,10 @@ export default {
     UsuarioItem
   },
   computed: {
-    ...mapState("usuario", ["listaUsuarios", "loading"])
+    ...mapState("usuario", ["listaUsuarios", "loading"]),
+     ajustaTitulo(){
+      return retornaMobile() ? "font-size:40px; margin-bottom: 5%;": ""
+    },
   },
   methods: {
     ...mapActions("usuario", ["buscarUsuarios"])

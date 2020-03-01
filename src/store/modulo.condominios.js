@@ -23,7 +23,6 @@ export const condo = {
           if (resp.status !== 200)
             return commit("casoFalha", response.statusText);
 
-        
           commit("setaLista", resp.data);
           commit("carregou")
         })

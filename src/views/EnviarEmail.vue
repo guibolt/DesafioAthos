@@ -1,14 +1,14 @@
 <template>
   <v-container fluid>
-    <v-layout justify-center class="mt-5">
-      <v-card width="50%" height="50%" elevation="6">
+    <v-layout justify-center :class="ajustaLayout">
+      <v-card :width="ajustaCard" height="50%" elevation="6">
         <v-toolbar color="#727272">
           <v-toolbar-title class="ml-10">
             <h1 class="font-weight-light white--text">Enviar Email</h1>
           </v-toolbar-title>
         </v-toolbar>
-        <v-row justify="center" class="mt-5">
-          <v-col cols="8">
+        <v-row justify="center" :class="ajustaLayout">
+          <v-col :cols="ajustaForm">
             <v-select
               :items="retornaAdms"
               label="Selecione a adiministradora"
@@ -34,8 +34,8 @@
           </v-col>
         </v-row>
         <v-row justify="space-around" class="mb-5">
-          <div style="width:25%;">
-            <v-btn color="#00A82A" class="white--text" tile block @click="enviarEmail">Enviar!</v-btn>
+          <div :style="ajustaBotao">
+            <v-btn color="#00A82A" class="white--text mb-5" tile block @click="enviarEmail">Enviar!</v-btn>
           </div>
 
           <v-btn text @click="$router.push('/')">
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { retornaMobile, } from "@/commum/util";
 import { mapGetters, mapActions, mapState, mapMutations } from "vuex";
 export default {
   name: "EnviarEmail",
@@ -67,7 +68,19 @@ export default {
   }),
   computed: {
     ...mapGetters("adm", ["retornaAdms"]),
-    ...mapState("email", ["snackbar", "mensagem"])
+    ...mapState("email", ["snackbar", "mensagem"]),
+    ajustaCard() {
+      return retornaMobile() ? "100%" : "50%";
+    },
+    ajustaForm() {
+      return retornaMobile() ? "10" : "8";
+    },
+    ajustaBotao() {
+      return retornaMobile() ? "width:55%;" : "width:25%;";
+    },
+    ajustaLayout() {
+      return retornaMobile() ? "" : "mt-5";
+    }
   },
   methods: {
     ...mapActions("adm", ["buscarAdms"]),

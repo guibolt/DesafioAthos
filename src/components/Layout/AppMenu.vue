@@ -87,7 +87,7 @@ export default {
         url: "/",
         items: [
           {
-            title: "Admistradoras",
+            title: "Administradoras",
             url: "/administradoras",
             icon: "emoji_people"
           },

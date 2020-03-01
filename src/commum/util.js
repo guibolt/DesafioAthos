@@ -1,4 +1,6 @@
-const achaInicial = (email) => email.charAt(0);
+const achaInicial = email => email.charAt(0);
 
-export {achaInicial}
+const retornaMobile = () => screen.width < 600 ? true : false;
+
+export {achaInicial,retornaMobile}
  
